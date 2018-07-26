@@ -1,0 +1,341 @@
+/* 
+Theme Name: Bootstrap 4 Sass
+Description: Bootstrap 4 with Sass
+*/
+//bootstrap
+@import "scss/bootstrap";
+// typography
+@import "base/typography";
+ 
+// compass
+//@import "compass";
+ 
+// import files
+@import "base/import";
+ 
+// mixins
+@import "helpers/mixins";
+ 
+// variables
+@import "helpers/variables";
+
+ 
+/* GENERAL STYLES
+-------------------------------------------------*/
+ 
+body {
+  background: $bg-bluegray;
+  font-family: $font-roboto;
+  font-weight: 300;
+  font-size: 100%;
+  line-height: 1.2em;
+  height: 100%;
+  color: $color-white;
+  -webkit-font-smoothing: antialiased;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+}
+
+body, input, select, textarea {
+	@include transition(all, 0.2s,cubic-bezier(0.42, 0, 0.58, 1) );
+}
+
+.scroll-touch {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+a {
+  font-family: $font-roboto;
+    color: $color-white;
+    //cursor: pointer;
+  text-decoration: none;
+	@include transition(all, 0.2s,cubic-bezier(0.42, 0, 0.58, 1));
+  &:hover {
+    color: $color-turquoise;
+    text-decoration: none !important;
+    outline: none !important;
+  }
+  &:active, &:focus {
+    outline: none !important;
+    text-decoration: none !important;
+    color: $color-white;
+  }
+}
+
+/* ==================================
+	  !Paragraph, Headlines, Alignment
+  ================================== */
+p {
+  font-family: $font-roboto;
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.6em;
+  color: $color-white;
+  font-weight: 400;
+}
+  
+h1, h2, h3, h4, h5, h6, .headline {
+  font-family: $font-oswald;
+  color: $color-white;
+  font-weight: 400;
+  line-height: 1.3em;
+}
+
+.headline{
+  font-size: $h4-font-size;
+}
+
+.quote{
+  font-size: $h5-font-size
+}
+
+/* ==================================
+  Flexbox
+  =================================== */
+
+.wrap{
+  flex-wrap: wrap;
+}
+
+/* ==================================
+	  !Header
+	================================== */
+
+header {
+  width: 100%;
+  margin: auto;
+  z-index: 1;
+  background: $bg-bluegray;
+}
+
+#pageHeader .max-width {
+  max-width: 1440px !important;
+  position: relative;
+}
+
+.shadow-box {
+  box-shadow: 0px 8px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.content-page-header {
+  padding: 0px;
+}
+
+.page-header {
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin: 0;
+  padding: 0;
+  .section-intro__logo {
+    margin: auto 0;
+  }
+}
+
+.logo-desktop {
+  max-width: 284px;
+  padding: 25px;
+  display: block;
+  margin: auto 0;
+  transition: all 500ms;
+  &.logo-desktop--active {
+    max-width: 160px;
+    padding: 10px;
+    transition: all 500ms;
+  }
+}
+
+/* =================================
+  Navbar
+================================= */
+
+.navbar-collapse{
+  justify-content: flex-end;
+}
+
+/* ==================================
+  Sections
+================================== */
+.box-item{
+  background: $bg-bluegray;
+  margin: 1em auto;
+  box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.5);
+}
+
+.section-content{
+  margin: 0;
+}
+
+/* ==================================
+      !Media Queries
+================================== */
+
+
+/* ==================================
+      !Keyframes
+================================== */
+
+@-moz-keyframes fade {
+  0%, 50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade {
+  0%, 50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fade {
+  0%, 50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0%, 50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ==================================
+  !Bootstrap
+  ================================== */
+.carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+}
+
+/* ==================================
+	  !Helpers
+	================================== */
+.margin-a{
+  margin: auto;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.hidden-opacity {
+  opacity: 0;
+}
+
+.visually-hidden, .vh {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  text-indent: -9999px;
+}
+
+.clearfix:before, .cf:before, .clearfix:after, .cf:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after, .cf:after {
+  clear: both;
+}
+
+.float-right, .fr {
+  float: right;
+}
+
+.float-left, .fl {
+  float: left;
+}
+
+.text-center, .tc {
+  text-align: center;
+}
+
+.text-right, .tr, .proceed {
+  text-align: right;
+}
+
+.informative {
+  cursor: help;
+}
+
+.muted {
+  opacity: 0.5;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+.lower {
+  text-transform: lowercase;
+}
+
+.caps {
+  text-transform: capitalize;
+}
+
+.hidde {
+  position: absolute;
+  left: -9999px;
+}
+
+.quotes:before, .q:before, .quotes:after, .q:after {
+  content: '"';
+}
+
+.pr {
+  padding-right: 10px !important;
+}
+
+.pl {
+  padding-left: 10px !important;
+}
+
+.pv {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.no-margin-top {
+  margin-top: 0;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+}
