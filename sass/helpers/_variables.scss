@@ -4,7 +4,8 @@
 
 $color-white: #FFFFFF;
 $color-turquoise: #00EFF2;
-
+$color-grayblue: #637183;
+$indicator-color: #00EFF2;
 
 // backgrounds
 
@@ -18,3 +19,112 @@ $bg-bluegray: #2D3F57;
 
 $font-oswald: 'Oswald', sans-serif;
 $font-roboto: 'Roboto', sans-serif;
+
+// Nav
+// How many menu items do we have?
+$menu-items: 4;
+
+// Transition Speed
+$transition-speed: 1.3s;
+
+// Dynamic Variables
+$width: (100/$menu-items) * 1%; // makes each item the right size
+$menu-items-loop-offset: $menu-items - 1; // the number of items in the menu
+// ======================================================
+// Step 2 - Making the pseudo indicator
+// ======================================================
+
+@include media-breakpoint-up(lg) {
+
+    .with-indicator {
+        position: relative;// the menu is "relative" to the absolute position last-child pseudo elements.
+        z-index: 0;
+        width: 40%;
+    
+        .nav-item {
+            text-align: center;
+            margin-left: auto;
+        // ======================================================
+        // Step 2.1 - Making the indicator with the pseudo element.
+        // ======================================================
+            &:last-child {
+                &:before, &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                pointer-events: none;
+                transition: left #{$transition-speed} ease;
+                }
+                // Making the top CSS Triangle - learn more: https://css-tricks.com/animation-css-triangles-work/
+                &:before {
+                //border: 2px solid transparent;
+                //border-top-color: $indicator-color;
+                width: $width;
+                height: 0;
+                top: 0;
+                left: ($width/2);
+                margin-left: -3px;
+                }
+                &:after {
+                    //background: $indicator-color;
+                    border: 2px solid transparent;
+                    border-top-color: $indicator-color;
+                    top: -10px;
+                    bottom: -10px;
+                    left: 0;
+                    width: $width;
+                    z-index: -1;
+                }
+        
+        
+            }
+    
+        }
+    
+        @for $i from 1 through $menu-items-loop-offset {
+            // when the Nav item "is active", make the indicator line up with the navigation item.
+            .nav-item:nth-child(#{$i}).active ~ .nav-item:last-child:after {
+                left:($width*$i)-$width;
+            }
+            .nav-item:nth-child(#{$i}).active ~ .nav-item:last-child:before
+            {
+                left:($width*$i)+($width/2)-$width; // this ensures the triangle lines up to the menu.
+            }
+        }
+    
+    // ======================================================
+    // Step 3 - Making it move
+    // ======================================================
+    
+        // This could be in the same loop as the above but for the tutorial steps it's not
+        @for $i from 1 through $menu-items-loop-offset {
+            // We have to use !important to make the hovers overide if the last:child is the active or hovered
+            .nav-item:nth-child(#{$i}):hover ~ .nav-item:last-child:after {
+                left:($width*$i)-$width !important;
+            }
+        
+            .nav-item:nth-child(#{$i}):hover ~ .nav-item:last-child:before{
+                left:($width*$i)+($width/2)-$width !important;
+            }
+            
+        }
+        
+        // this could be nested in the original .nav-item
+        .nav-item {
+            &:last-child {
+                // make sure the last-child talks to itself
+                &:hover, &.active {
+                    &:before {
+                    // we have to use important because the sibling selctor is more specific.
+                        left: (100%-$width)+($width/2) !important;
+                    }
+                    &:after{
+                        left: 100%-$width !important;
+                    }
+                }        
+            }
+        }
+    
+    }
+
+}

@@ -68,6 +68,7 @@ a {
   }
 }
 
+
 /* ==================================
 	  !Paragraph, Headlines, Alignment
   ================================== */
@@ -138,15 +139,21 @@ header {
 }
 
 .logo-desktop {
+  font-family: $font-oswald;
+  font-style: italic;
+  font-size: $h4-font-size;
   max-width: 284px;
   padding: 25px;
   display: block;
   margin: auto 0;
   transition: all 500ms;
   &.logo-desktop--active {
-    max-width: 160px;
+    max-width: 250px;
     padding: 10px;
     transition: all 500ms;
+  }
+  & i{
+    color: $color-turquoise;
   }
 }
 
@@ -156,6 +163,31 @@ header {
 
 .navbar-collapse{
   justify-content: flex-end;
+}
+
+.nav-item {
+  transition: all 500ms;
+  width: $width;
+  text-align: left;
+  margin-left: 1.6em;
+
+  // The first item in the menu
+  &:first-child {
+    border-radius: 3px 0 0 3px;
+  }
+
+  // The last item in the menu
+  &:last-child {
+    border-radius: 0 3px 3px 0;
+  }
+
+  // If the menu item is active, give it the same color as the indicator
+  &.active a {
+    color: $color-turquoise;
+  }
+  a{
+    transition: all 500ms;
+  }
 }
 
 /* ==================================
@@ -171,10 +203,79 @@ header {
   margin: 0;
 }
 
+.min_height-md{
+  min-height: 300px;
+}
+
+/* Backgrounds */
+.background_img{
+  background: url(../img/slides/img-2880x1116.png) no-repeat center center;
+  background-size: cover;
+}
+
+/* IMG FLOAT */
+.a_img{
+  right: 0; bottom: 0; margin: auto; top: 0; left: 0;
+}
+
+.b_img{
+  margin: auto; bottom: -5em;
+}
+
+.c_img{
+  right: 0;bottom: -2em;
+}
+
+/* MY COUNTER LIST */
+.faq {
+  counter-reset: my-counter;
+  position: relative;
+  z-index: 2;
+}
+.faq dt {
+  //font-family: $font-oswald;
+  color: $color-turquoise;
+  position: relative;
+  //font-size: 1.2em;
+  //font-weight: 600;
+  padding: 4px 0 10px 4em;
+}
+.faq dt:before {
+  content: counter(my-counter);
+  counter-increment: my-counter;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: $font-oswald;
+  //font-size: 0.7em;
+  //font-weight: 300;
+  color: white;
+  background: transparent;
+  border: 2px solid white;
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  padding: 8px 0px 0px 13px;
+}
+.faq dd {
+  margin: 0 0 1em 2em;
+  padding-left: 2em;
+  color: $color-grayblue;
+}
+// .faq dd:before {
+//   font-size: 2em;
+//   content: '• ';
+//   color: #ffc900;
+//   position: relative;
+//   left: 0;
+//   top: 0.05em;
+//   line-height: 0.4em;
+// }
+
+
 /* ==================================
       !Media Queries
 ================================== */
-
 
 /* ==================================
       !Keyframes
@@ -229,11 +330,45 @@ header {
   border-radius: 10px;
 }
 
+/* Modal */
+.modal-dialog {
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+.modal-body {
+  position: relative;
+  padding: 0px;
+}
+
+.modal-content{
+  background: #000000;
+}
+
+.close {
+  position: absolute;
+  right: -30px;
+  top: 0;
+  z-index: 999;
+  font-size: 2rem;
+  font-weight: normal;
+  color: #fff;
+  opacity: 1;
+}
+
+.video-btn{
+  cursor: pointer;
+}
+
 /* ==================================
 	  !Helpers
 	================================== */
 .margin-a{
   margin: auto;
+}
+
+.margin-b{
+  margin: 10em 0 5em;
 }
 
 .no-scroll {
@@ -338,4 +473,5 @@ header {
 .fixed {
   position: fixed;
   top: 0;
+  z-index: 20;
 }
