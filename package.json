@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lalosmile/template-base.git"
+    "url": "git+https://github.com/lalosmile/grunt-bootstrap4-sass.git"
   },
   "keywords": [
     "bootstrap4",
@@ -17,11 +17,11 @@
     "grunt"
   ],
   "author": "Lalo Lemon",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/lalosmile/template-base/issues"
+    "url": "https://github.com/lalosmile/grunt-bootstrap4-sass/issues"
   },
-  "homepage": "https://github.com/lalosmile/template-base#readme",
+  "homepage": "https://github.com/lalosmile/grunt-bootstrap4-sass#readme",
   "devDependencies": {
     "bootstrap": "^4.1.3",
     "grunt": "^1.0.3",
