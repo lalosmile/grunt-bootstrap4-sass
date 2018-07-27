@@ -24,7 +24,7 @@ Description: Bootstrap 4 with Sass
 -------------------------------------------------*/
  
 body {
-  background: $bg-bluegray;
+  background: $bg-darkblue-c;
   font-family: $font-roboto;
   font-weight: 300;
   font-size: 100%;
@@ -66,6 +66,15 @@ a {
     text-decoration: none !important;
     color: $color-white;
   }
+}
+
+/* Background Color */
+.back_gradient{
+  background: #26354a;
+  background: -moz-linear-gradient(-45deg, #26354a 0%, #33435b 50%, #334560 51%, #293952 100%);
+  background: -webkit-linear-gradient(-45deg, #26354a 0%,#33435b 50%,#334560 51%,#293952 100%);
+  background: linear-gradient(135deg, #26354a 0%,#33435b 50%,#334560 51%,#293952 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26354a', endColorstr='#293952',GradientType=1 );
 }
 
 
@@ -193,10 +202,62 @@ header {
 /* ==================================
   Sections
 ================================== */
+.form-control{
+  background: $color-grayblue;
+  border: none;
+  color: $bg-darkblue-b;
+}
+.bblue{
+  background: $bg-darkblue;
+}
 .box-item{
   background: $bg-bluegray;
   margin: 1em auto;
   box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.5);
+  padding: 1.8em;
+  line-height: 1.6em;
+  align-items: stretch;
+  p{
+    color: $color-grayblue;
+  }
+  .lh{
+   line-height: 1.2em;   
+  }
+  a{
+    color: $color-turquoise;
+    line-height: 2.2em;
+  }
+  .headline{
+    color: white;
+    line-height: 2.4em;
+  }
+}
+
+.lhc{
+  color: $color-grayblue;
+  line-height: 1.2em;
+  margin: 2em auto;
+}
+
+.text-hide{
+  margin: auto;
+  top: -1px;
+  left: 30px;
+  position: absolute;
+}
+
+.bigTitle{
+  position: absolute;
+  font-size: 6em;
+  color: #1C283E;
+  z-index: 0;
+  left: 3%;
+  margin-top: -0.2em;
+  text-transform: uppercase;
+}
+
+.margin-c{
+  margin-top: 4.8em;
 }
 
 .section-content{
@@ -276,6 +337,34 @@ header {
 /* ==================================
       !Media Queries
 ================================== */
+@include media-breakpoint-up(xl) {
+  .padding-a{
+    padding: 14em 0;
+  }
+  .padding-b{
+    padding: 2em 0;
+  }
+  #carousel-home{
+    display: block!important;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .padding-a{
+    position: relative;
+  }
+  .video-btn{
+    margin: auto;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    height: 200px;
+    background: transparent;
+    z-index: 8;
+    position: absolute;
+  }
+}
+
 
 /* ==================================
       !Keyframes
@@ -324,10 +413,26 @@ header {
 /* ==================================
   !Bootstrap
   ================================== */
+.btn{
+  margin: 1em auto 2em auto !important;
+}
+
+.btn-primary{
+  background: $bg-darkblue-b;
+  border: none;
+  &:hover{
+    background: $bg-darkblue-b;
+  }
+}
+
 .carousel-indicators li {
   width: 10px;
   height: 10px;
   border-radius: 10px;
+}
+
+#carousel-home{
+  display: none;
 }
 
 /* Modal */
@@ -368,7 +473,14 @@ header {
 }
 
 .margin-b{
-  margin: 10em 0 5em;
+  margin: 12em 0 10em;
+}
+.padding-a{
+  padding: 6em 0;
+}
+
+.padding-b{
+  padding: 7em 0;
 }
 
 .no-scroll {
