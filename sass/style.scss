@@ -39,6 +39,7 @@ body, html {
   padding: 0;
   -webkit-tap-highlight-color: transparent;
   width: 100%;
+  height: 100%;
 }
 
 body, input, select, textarea {
@@ -152,9 +153,10 @@ header {
   font-style: italic;
   font-size: $h4-font-size;
   max-width: 284px;
-  padding: 25px;
+  padding: 15px;
   display: block;
   margin: auto 0;
+  line-height: 1em;
   transition: all 500ms;
   &.logo-desktop--active {
     max-width: 250px;
@@ -169,6 +171,9 @@ header {
 /* =================================
   Navbar
 ================================= */
+.navbar{
+  padding: .35rem 1rem;
+}
 
 .navbar-collapse{
   justify-content: flex-end;
@@ -251,17 +256,19 @@ header {
   font-size: 6em;
   color: #1C283E;
   z-index: 0;
-  left: 3%;
-  margin-top: -0.2em;
+  left: 0.2em;
+  margin-top: 0.5em;
   text-transform: uppercase;
 }
 
 .margin-c{
-  margin-top: 4.8em;
+  //margin-top: 4.8em;
+  bottom: -5em;
 }
 
 .section-content{
-  margin: 0;
+  margin: auto;
+  width: 100%;
 }
 
 .min_height-md{
@@ -270,7 +277,7 @@ header {
 
 /* Backgrounds */
 .background_img{
-  background: url(../img/slides/img-2880x1116.png) no-repeat center center;
+  background: url(../img/slides/img-2880x1116.jpg) no-repeat center center;
   background-size: cover;
 }
 
@@ -333,6 +340,14 @@ header {
 //   line-height: 0.4em;
 // }
 
+/* ==================================
+      !Footer
+================================== */
+footer{
+  margin: 2em auto;
+  padding: 2em 0;
+  height: 20px;
+}
 
 /* ==================================
       !Media Queries
@@ -344,15 +359,47 @@ header {
   .padding-b{
     padding: 2em 0;
   }
-  #carousel-home{
-    display: block!important;
+  .padding-t{
+    padding-top: 4em;
   }
 }
 
-@include media-breakpoint-down(md) {
-  .padding-a{
+@include media-breakpoint-up(md) {
+  #carousel-home{
+    display: block !important;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .padding-a, .section-content{
     position: relative;
   }
+  .height_f {
+    height: auto !important;
+    padding: 2em 0;
+  }
+  .b_img, .c_img{
+    display: none;
+  }
+  .position-absolute{
+    position: relative!important;
+  }
+  .margin-c{
+    bottom: 0;
+  }
+  .bigTitle{
+    position: relative;
+    margin-top: 0;
+    font-size: 4em;
+    left: 0;
+    margin: auto 0.2em;
+  }
+  .d-flex{
+    flex-direction: column;
+  }
+}
+
+@include media-breakpoint-down(sm) {
   .video-btn{
     margin: auto;
     bottom: 0;
@@ -362,6 +409,9 @@ header {
     background: transparent;
     z-index: 8;
     position: absolute;
+  }
+  .a_img, .b_img, .c_img{
+    bottom: initial;
   }
 }
 
@@ -472,13 +522,18 @@ header {
 
 /* ==================================
 	  !Helpers
-	================================== */
+  ================================== */
+
+.height_f{
+  height: 100%;
+}
+
 .margin-a{
   margin: auto;
 }
 
 .margin-b{
-  margin: 12em 0 10em;
+  margin: 9em 0 6em;
 }
 .padding-a{
   padding: 6em 0;
