@@ -47,9 +47,11 @@ $( function() {
   });
 
   //MODAL
+
     var $videoSrc;  
     $('.video-btn').click(function() {
         $videoSrc = $(this).data( "src" );
+        //$('#watch-later').hide();
     });
     console.log($videoSrc);
     $('#myModal').on('shown.bs.modal', function (e) {
@@ -58,6 +60,7 @@ $( function() {
     
     $('#myModal').on('hide.bs.modal', function (e) {
         $("#video").attr('src',$videoSrc); 
+        //$('#watch-later').show();
     }) 
 
     /* NAV LINK */
